@@ -25,6 +25,7 @@ p{
   font-size: 40px;
   font-weight: bold;
   color: red;
+  cursor: pointer;
 }
 
 .row{
