@@ -5,6 +5,7 @@ export default class App extends React.Component {
   state = {
     value: new Array(9).fill(null),
     current: "X",
+    game: true
   };
 
   checkWinner = () => {
@@ -21,7 +22,9 @@ export default class App extends React.Component {
 
     for (let i = 0; i < win.length; i++) {
       const [a, b, c] = win[i];
-      if (this.state.value[a] !== null && this.state.value[a] === this.state.value[b] && this.state.value[a] === this.state.value[c]) return true;
+      if (this.state.value[a] !== null && this.state.value[a] === this.state.value[b] && this.state.value[a] === this.state.value[c]) {
+        return true;
+      }
     }
     return false;
   };
@@ -31,22 +34,28 @@ export default class App extends React.Component {
     let state = this.state.value;
 
     if (state[index] !== null) return;
+    
+    if(this.state.game){
+        this.setState({ current: currentTurn === "X" ? "O" : "X" });
+        state[index] = currentTurn;
+        console.log(currentTurn);
+    }
+    
+};
 
-    this.setState({ current: currentTurn === "X" ? "O" : "X" });
-    state[index] = currentTurn;
+resetGame = () =>{
+    return window.location.reload()
+}
 
-    console.log(currentTurn);
 
+checkwin = () => {
     const win = this.checkWinner();
-
     if (win) {
-      alert(`${currentTurn} is winner 🏆`);
+        this.state.game = false
+        let value = this.state.current === "X" ? "O" : "X";
+      return <p>{value} is winner 🏆</p>;
     }
   };
-
-  //   checkwin = () => {
-
-  //   };
 
   render() {
     return (
@@ -68,7 +77,8 @@ export default class App extends React.Component {
             <Block onClick={() => this.handleBlockClick(8)} value={this.state.value[8]} />
           </div>
         </div>
-        {/* <p>{this.checkwin()}</p> */}
+        <p>{this.checkwin()}</p>
+        <button onClick={this.resetGame}>Reset</button>
       </div>
     );
   }
