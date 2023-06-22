@@ -7,27 +7,115 @@
 }
 
 body {
-  padding: 50px;
-  font-family: 'Gothic A1', sans-serif;
-}
-.histories{
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Gothic A1', sans-serif;
+  background-color: rgb(255, 216, 222);
 }
-.btnHistory{
-  padding: 5px 10px;
-  font-size: 16px;
+.container{
+  text-align: center;
+}
+h1{
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 50px;
+  font-weight: 400;
+}
+h2{
+  text-align: center;
+  
 }
 
-.winnerPlayer{
-  font-size: 35px;
+.players{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.player{
+  font-size: 20px;
   font-weight: bold;
 }
+.pick-game-container{
+  position: relative;
+  display: flex;
+  gap: 5px;
+}
 
-.by-writed{
-  font-size: 17.5px;
-  color: #908e8e;
-  font-weight: 400;
+.left-player, .right-player{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 600px;
+  height: 600px;
+  border-radius: 10px;
+  background-color: rgb(255, 165, 180);
+}
+
+button{
+  padding: 15px 30px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.left-player-all-score, .right-player-all-score{
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.left-player-current-score, .right-player-current-score{
+  font-size: 40px;
+  font-weight: bold;
+  color: #000;
+}
+button:active{
+  transform: scale(1.1);
+}
+
+.randNumber{
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  left: 46%;
+  top: 40%;
+  background-color: #fff;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px dashed #ccc;
+}
+
+.holdBtn{
+  padding: 15px 50px;
+  border: 2px dashed rgb(243, 98, 122);
+  background-color: rgb(246, 201, 207);
+  position: absolute;
+  top: 79.5%;
+  right: 42.5%;
+  color: rgb(253, 66, 97);
+}
+
+.reset{
   margin-top: 20px;
+  background-color: rgb(255, 52, 86);
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.winner{
+  color: green;
+  font-size: 32px;
+  margin-top: 10px;
 }
