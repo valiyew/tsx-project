@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Board from "./components/board/board";
 import Histories from "./components/histories";
 
-type Player = "X" | "O";
+type Player = "X" | "O" | "";
 type IBoard = (Player | null)[];
 
 export interface AppState {
@@ -20,7 +20,7 @@ export default class App extends React.Component<{}, AppState> {
     histories: [new Array(9).fill(null)],
     nextPlayer: "X",
     currentIdx: 0,
-    // winner: "X"
+    winner: "",
     game: true,
   };
 
