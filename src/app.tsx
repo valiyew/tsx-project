@@ -62,7 +62,7 @@ export default class App extends React.Component<{}, AppState> {
   checkwin = () => {
     const win = this.checkWinner();
     if (win) {
-      this.state.game = false;
+      this.setState({game: false})
       let value = this.state.nextPlayer === "X" ? "O" : "X";
       return <p style={{color: "green"}}>{value} is winner 🏆</p>;
     }
