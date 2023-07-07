@@ -1,18 +1,23 @@
 import { Component } from "react";
-import Navbar from "./components/navbar/navbar";
-import Movies from "./components/movies/movies";
-import Genres from "./components/movies/genres";
+import { Home, Login, Register } from "./pages";
 
 export default class App extends Component {
+  getPage = () => {
+    switch(window.location.pathname){
+      case "/login":
+      return <Login />
+      
+      case "/register":
+      return <Register />
+      
+      default: return <Home />
+    }
+  }
+  
+  
   render() {
     return (
-      <div>
-        <Navbar />
-        <div style={{ display: "flex", gap: "20px" }}>
-          <Genres />
-          <Movies />
-        </div>
-      </div>
+      this.getPage()
     );
   }
 }
