@@ -1,38 +1,41 @@
 import React, { Component } from "react";
-import { Home, Login, Register } from "./pages";
 import { Navbar } from "./components";
+import { Home, Login, Register } from "./pages";
 
 interface AppState {
-  pathName: string;
+  pathname: string;
 }
 
-export default class App extends Component<AppState> {
+export default class App extends Component<{}, AppState> {
   state: AppState = {
-    pathName: "",
+    pathname: "/",
   };
 
+  handleNavigate = (pathname: string) => {
+    window.history.pushState({}, "", pathname);
+    this.setState({ pathname });
+  };
+  
+
   getPage = () => {
-    switch (window.location.pathname) {
+    switch (this.state.pathname) {
+      case "/":
+        return <Home />;
       case "/login":
         return <Login />;
-
       case "/register":
         return <Register />;
-
       default:
         return <Home />;
     }
   };
 
-  handleNavigate = (pathName: string) => {
-    this.setState({ pathName });
-  };
   render() {
     return (
-      <>
+      <div>
         <Navbar onNavigate={this.handleNavigate} />
-        {this.getPage()}
-      </>
+        <div className="container">{this.getPage()}</div>
+      </div>
     );
   }
 }

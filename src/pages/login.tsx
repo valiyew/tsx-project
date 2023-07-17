@@ -1,11 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import http from "../services/http";
 
 export default class Login extends Component {
   render() {
-    return (
-      <div className='container'>
-        login
-      </div>
-    )
+    return <div>Login</div>;
   }
 }
