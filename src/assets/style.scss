@@ -1,0 +1,26 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid;
+  gap: 5px;
+  background-color: black;
+}
+
+.cels {
+  width: 300px;
+  height: 300px;
+  border: 1px solid;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: white;
+  
+
+  .num {
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
